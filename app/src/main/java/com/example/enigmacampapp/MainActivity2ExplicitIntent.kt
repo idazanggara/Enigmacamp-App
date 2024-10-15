@@ -32,12 +32,12 @@ class MainActivity2ExplicitIntent : AppCompatActivity() {
 
 
     private fun sendData() {
-        val intent = Intent(this@MainActivity2ExplicitIntent, SecondActivity::class.java)
+        val intent = Intent(this@MainActivity2ExplicitIntent, SecondActivity2::class.java)
 
         // send data to second activity
         val sendName = txtInputName.text
         txtInputName.text = sendName
-        intent.putExtra(SecondActivity.GET_NAME, txtInputName.text.toString())
+        intent.putExtra(SecondActivity2.GET_NAME, txtInputName.text.toString())
 
         startActivity(intent)
     }
