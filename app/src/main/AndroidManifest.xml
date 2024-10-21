@@ -13,6 +13,9 @@
         android:theme="@style/Theme.EnigmacampApp"
         tools:targetApi="31">
         <activity
+            android:name=".MainForFrgmntActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity3ImplicitIntent"
             android:exported="false" />
         <activity
