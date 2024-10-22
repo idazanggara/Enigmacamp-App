@@ -13,7 +13,7 @@
         android:theme="@style/Theme.EnigmacampApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainForFrgmntActivity"
+            android:name=".MainActivityViewBindForActi"
             android:exported="false" />
         <activity
             android:name=".MainActivity3ImplicitIntent"
@@ -34,7 +34,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivityViewBindForActi"
+            android:name=".MainForFrgmntActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
