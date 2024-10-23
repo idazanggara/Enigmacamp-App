@@ -15,20 +15,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.fragment.app.FragmentContainerView
+        <fragment
             android:id="@+id/counter_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:name="com.example.enigmacampapp.Counter01Fragment"
             tools:layout="@layout/fragment_counter01"
             />
 
-        <androidx.fragment.app.FragmentContainerView
+        <fragment
             android:id="@+id/counter_show_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:layout="@layout/fragment_counter_show01"
+            android:name="com.example.enigmacampapp.ShowCounter01Fragment"
+            tools:layout="@layout/fragment_show_counter01"
             />
 
     </LinearLayout>
