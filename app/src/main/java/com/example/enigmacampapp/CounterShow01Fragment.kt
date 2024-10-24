@@ -9,30 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.enigmacampapp.databinding.FragmentCounterShow01Binding
 
-//// TODO: Rename parameter arguments, choose names that match
-//// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//private const val ARG_PARAM1 = "param1"
-//private const val ARG_PARAM2 = "param2"
-//
-///**
-// * A simple [Fragment] subclass.
-// * Use the [CounterShow01Fragment.newInstance] factory method to
-// * create an instance of this fragment.
-// */
 class CounterShow01Fragment : Fragment() {
-//    // TODO: Rename and change types of parameters
-//    private var param1: String? = null
-//    private var param2: String? = null
-
-    // view binding
     lateinit var binding: FragmentCounterShow01Binding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        arguments?.let {
-//            param1 = it.getString(ARG_PARAM1)
-//            param2 = it.getString(ARG_PARAM2)
-//        }
     }
 
     override fun onCreateView(
@@ -47,40 +29,34 @@ class CounterShow01Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        notifyShowCounter(counter)
+//        Log.i("testFragment", "Nilai counter di show fragment $counter")
+//        binding.tvCounterSecond.text = "Teting From Fragment"
+        if(arguments != null){
+            val label = arguments?.getString(EXTRA_VALUE)
+            binding.tvCounterSecond.text = label
+        }
     }
 
     fun notifyShowCounter(counter: Int) {
         binding.apply {
             tvCounter.text = counter.toString()
-            if (counter > 10){
-                tvCounter.setTextColor(Color.GREEN)
-            } else if (counter < 0){
-                tvCounter.setTextColor(Color.RED)
-            } else {
-                tvCounter.setTextColor(Color.BLACK)
-            }
+            // kita ubah ifnya jadi seperti ini
+            tvCounter.setTextColor(
+                when {
+                    counter > 20 -> Color.RED
+                    counter > 10 -> Color.GREEN
+                    else -> Color.BLACK
+                }
+            )
         }
 
         Log.i("testShowFragment", "showCounter $counter")
     }
 
     companion object {
-//        /**
-//         * Use this factory method to create a new instance of
-//         * this fragment using the provided parameters.
-//         *
-//         * @param param1 Parameter 1.
-//         * @param param2 Parameter 2.
-//         * @return A new instance of fragment CounterShow01Fragment.
-//         */
-//        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) = CounterShow01Fragment()
-//            CounterShow01Fragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
+        var EXTRA_VALUE = "extra_value"
     }
 }
