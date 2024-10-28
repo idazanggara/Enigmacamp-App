@@ -12,7 +12,7 @@ import com.example.enigmacampapp.databinding.FragmentCounterShow01Binding
 class CounterShow01Fragment : Fragment() {
     lateinit var binding: FragmentCounterShow01Binding
 
-
+    var counter = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -29,19 +29,12 @@ class CounterShow01Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        notifyShowCounter(counter)
-//        Log.i("testFragment", "Nilai counter di show fragment $counter")
-//        binding.tvCounterSecond.text = "Teting From Fragment"
-        if(arguments != null){
-            val label = arguments?.getString(EXTRA_VALUE)
-            binding.tvCounterSecond.text = label
-        }
+        notifyShowCounter(counter)
     }
 
     fun notifyShowCounter(counter: Int) {
         binding.apply {
             tvCounter.text = counter.toString()
-            // kita ubah ifnya jadi seperti ini
             tvCounter.setTextColor(
                 when {
                     counter > 20 -> Color.RED

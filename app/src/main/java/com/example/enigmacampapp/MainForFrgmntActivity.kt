@@ -2,23 +2,30 @@ package com.example.enigmacampapp
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.example.enigmacampapp.controller.CounterHandler
 import com.example.enigmacampapp.databinding.ActivityMainForFrgmntBinding
 import com.example.enigmacampapp.databinding.FragmentCounter01Binding
 import com.example.enigmacampapp.databinding.FragmentCounterShow01Binding
 
-class MainForFrgmntActivity : AppCompatActivity(), CounterHandler {
+class MainForFrgmntActivity : AppCompatActivity(),View.OnClickListener, CounterHandler {
 
     private lateinit var binding: ActivityMainForFrgmntBinding
 
     private lateinit var counterShowFragment: CounterShow01Fragment
 
     private lateinit var counterFragment: Counter01Fragment
+
+    // kenapa butuh counter disini, karena kita mau pindahkan nilai dari function interface ke function switchFragment jadi butuh variable global
+    // untuk nilainya bisa di set dari couterFragment seperti sebelumnya, atau kita pindahkan counternya di main fragment seperti ini.
+    // tergantung kebutuhan dan logica aja
+    private var counter = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,22 +43,13 @@ class MainForFrgmntActivity : AppCompatActivity(), CounterHandler {
         counterShowFragment = CounterShow01Fragment()
         counterFragment = Counter01Fragment()
 
-        val fragmentCounter = mFragmentManager.findFragmentByTag(Counter01Fragment::class.java.simpleName)
-        if(fragmentCounter !is Counter01Fragment){
-            mFragmentManager
-                .beginTransaction()
-                .add(R.id.counter_fragment,counterFragment, Counter01Fragment::class.java.simpleName)
-                .commit()
+        binding.apply {
+            btnCounterFragment.setOnClickListener(this@MainForFrgmntActivity)
+
+            btnCounterShowFragment.setOnClickListener(this@MainForFrgmntActivity)
         }
 
-        val fragmentCounterShow = mFragmentManager.findFragmentByTag(CounterShow01Fragment::class.java.simpleName)
-        if(fragmentCounterShow !is CounterShow01Fragment){
-            mFragmentManager
-                .beginTransaction()
-                .add(R.id.counter_show_fragment,counterShowFragment, CounterShow01Fragment::class.java.simpleName)
-                .commit()
-        }
-
+        mFragmentManager.beginTransaction().add(R.id.fragmentContainer, counterFragment).commit()
 
     }
 
@@ -59,7 +57,80 @@ class MainForFrgmntActivity : AppCompatActivity(), CounterHandler {
         counterShowFragment.notifyShowCounter(counter)
     }
 
+    override fun notifyIncrease() {
+        counter++
+    }
+
+    override fun notifyDecrease() {
+        counter--
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.btn_counter_fragment -> switchFragment(counterFragment)
+            R.id.btn_counter_show_fragment -> {
+                counterShowFragment.counter = this.counter
+                switchFragment(counterShowFragment)
+            }
+
+        }
+    }
+
+    private fun switchFragment(fragment: Fragment){
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
+    }
+
 }
+
+// Counter With Interface
+//class MainForFrgmntActivity : AppCompatActivity(), CounterHandler {
+//
+//    private lateinit var binding: ActivityMainForFrgmntBinding
+//
+//    private lateinit var counterShowFragment: CounterShow01Fragment
+//
+//    private lateinit var counterFragment: Counter01Fragment
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        enableEdgeToEdge()
+//        binding = ActivityMainForFrgmntBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//            insets
+//        }
+//
+//
+//        val mFragmentManager = supportFragmentManager
+//        counterShowFragment = CounterShow01Fragment()
+//        counterFragment = Counter01Fragment()
+//
+//        val fragmentCounter = mFragmentManager.findFragmentByTag(Counter01Fragment::class.java.simpleName)
+//        if(fragmentCounter !is Counter01Fragment){
+//            mFragmentManager
+//                .beginTransaction()
+//                .add(R.id.counter_fragment,counterFragment, Counter01Fragment::class.java.simpleName)
+//                .commit()
+//        }
+//
+//        val fragmentCounterShow = mFragmentManager.findFragmentByTag(CounterShow01Fragment::class.java.simpleName)
+//        if(fragmentCounterShow !is CounterShow01Fragment){
+//            mFragmentManager
+//                .beginTransaction()
+//                .add(R.id.counter_show_fragment,counterShowFragment, CounterShow01Fragment::class.java.simpleName)
+//                .commit()
+//        }
+//
+//
+//    }
+//
+//    override fun notifyShowCounter(counter: Int) {
+//        counterShowFragment.notifyShowCounter(counter)
+//    }
+//
+//}
 
 
 // old

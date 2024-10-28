@@ -7,29 +7,89 @@
     android:layout_height="match_parent"
     tools:context=".MainForFrgmntActivity">
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/counter_fragment"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_counter_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             android:layout_weight="1"
-            tools:layout="@layout/fragment_counter01"
-            />
+            android:backgroundTint="@color/primaryColor"
+            android:text="Counter Input"
+            android:textSize="15sp" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/counter_show_fragment"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_counter_show_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             android:layout_weight="1"
-            tools:layout="@layout/fragment_counter_show01"
-            />
+            android:backgroundTint="#C11C84"
+            android:text="Counter Show"
+            android:textSize="15sp" />
 
     </LinearLayout>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.enigmacampapp.CounterShow01Fragment"
+        />
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--Before Fragment Manager-->
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/main"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".MainForFrgmntActivity">-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="1dp"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent">-->
+<!--    -->
+<!--        <androidx.fragment.app.FragmentContainerView-->
+<!--            android:id="@+id/counter_fragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            tools:layout="@layout/fragment_counter01"-->
+<!--            />-->
+<!--    -->
+<!--        <androidx.fragment.app.FragmentContainerView-->
+<!--            android:id="@+id/counter_show_fragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            tools:layout="@layout/fragment_counter_show01"-->
+<!--            />-->
+<!--    -->
+<!--    </LinearLayout>-->
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
