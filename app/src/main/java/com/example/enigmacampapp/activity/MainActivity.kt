@@ -31,21 +31,21 @@ class MainActivity : AppCompatActivity(), MessageController {
             insets
         }
 
-        messageFragment = MessageFragment()
-        messageShowFragment = ShowMessageFragment()
-
-        supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, messageFragment).commit()
+//        messageFragment = MessageFragment()
+//        messageShowFragment = ShowMessageFragment()
+//
+//        supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, messageFragment).commit()
     }
 
-    private fun switchFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
-    }
+//    private fun switchFragment(fragment: Fragment) {
+//        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
+//    }
 
     override fun sendMessage(message: String) {
-        val bundle = Bundle()
-        bundle.putString(MESSAGE, message)
-        messageShowFragment.arguments = bundle
-        switchFragment(messageShowFragment)
+//        val bundle = Bundle()
+//        bundle.putString(MESSAGE, message)
+//        messageShowFragment.arguments = bundle
+//        switchFragment(messageShowFragment)
     }
 
 
