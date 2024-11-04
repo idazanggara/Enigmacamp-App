@@ -1,4 +1,4 @@
-package com.example.enigmacampapp.controller
+package com.example.enigmacampapp.materialBeforeNav.controller
 
 interface CounterHandler {
     // tujuan interface untuk antar muka / komunikasi dari fragment ke fragment lain

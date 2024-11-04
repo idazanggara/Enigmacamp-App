@@ -1,4 +1,4 @@
-package com.example.enigmacampapp
+package com.example.enigmacampapp.materialBeforeNav
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.enigmacampapp.R
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
 
 class SecondActivity3 : AppCompatActivity(), View.OnClickListener {
 

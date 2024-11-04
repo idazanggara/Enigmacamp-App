@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainForFrgmntActivity">
+    tools:context=".materialBeforeNav.MainForFrgmntActivity">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -92,5 +92,5 @@
 <!--<fragment-->
 <!--android:layout_width="match_parent"-->
 <!--android:layout_height="match_parent"-->
-<!--android:name="com.example.enigmacampapp.CounterShow01Fragment"-->
+<!--android:name="com.example.enigmacampapp.materialBeforeNav.CounterShow01Fragment"-->
 <!--    />-->

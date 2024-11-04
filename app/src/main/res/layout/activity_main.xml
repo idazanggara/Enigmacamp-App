@@ -505,7 +505,7 @@
     android:layout_height="match_parent"
     android:id="@+id/main"
     android:orientation="horizontal"
-    tools:context=".MainActivity">
+    tools:context=".materialBeforeNav.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.enigmacampapp
+package com.example.enigmacampapp.materialBeforeNav
 
 import android.graphics.Color
 import android.os.Bundle

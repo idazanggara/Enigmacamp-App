@@ -1,4 +1,4 @@
-package com.example.enigmacampapp
+package com.example.enigmacampapp.materialBeforeNav
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -17,8 +17,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.enigmacampapp.R
 import com.example.enigmacampapp.databinding.ActivityMainViewBindForBinding
-import com.google.android.material.button.MaterialButton
 
 class MainActivityViewBindForActi : AppCompatActivity() {
 

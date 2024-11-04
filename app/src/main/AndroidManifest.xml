@@ -13,29 +13,42 @@
         android:theme="@style/Theme.EnigmacampApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivityViewBindForActi"
+            android:name=".activity.SplashScreenActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity3ImplicitIntent"
+            android:name=".activity.AuthenticationActivity"
             android:exported="false" />
         <activity
-            android:name=".SecondActivity3"
+            android:name=".activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2ExplicitIntent"
+            android:name=".materialBeforeNav.MainForFrgmntActivity"
             android:exported="false" />
         <activity
-            android:name=".SecondActivity2"
+            android:name=".materialBeforeNav.MainActivityViewBindForActi"
             android:exported="false" />
         <activity
-            android:name=".CounterAppAnI02"
+            android:name=".materialBeforeNav.MainActivity3ImplicitIntent"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".materialBeforeNav.SecondActivity3"
             android:exported="false" />
         <activity
-            android:name=".MainForFrgmntActivity"
-            android:exported="true">
+            android:name=".materialBeforeNav.MainActivity2ExplicitIntent"
+            android:exported="false" />
+        <activity
+            android:name=".materialBeforeNav.SecondActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".materialBeforeNav.CounterAppAnI02"
+            android:exported="false" />
+        <activity
+            android:name=".materialBeforeNav.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
