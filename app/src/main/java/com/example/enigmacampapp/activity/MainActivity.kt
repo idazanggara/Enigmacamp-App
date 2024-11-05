@@ -5,26 +5,25 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
 import com.example.enigmacampapp.R
 import com.example.enigmacampapp.communicator.MessageController
 import com.example.enigmacampapp.screen.MessageFragment
 import com.example.enigmacampapp.screen.ShowMessageFragment
 
-class MainActivity : AppCompatActivity(), MessageController {
+class MainActivity : AppCompatActivity() {
 
-    companion object {
-        const val MESSAGE = "MESSAGE"
-    }
-
-
-    private lateinit var messageFragment: MessageFragment
-    private lateinit var messageShowFragment: ShowMessageFragment
+//    companion object {
+//        const val MESSAGE = "MESSAGE"
+//    }
+//
+//
+//    private lateinit var messageFragment: MessageFragment
+//    private lateinit var messageShowFragment: ShowMessageFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main_gretmess)
+        setContentView(R.layout.activity_main_nav)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -41,12 +40,12 @@ class MainActivity : AppCompatActivity(), MessageController {
 //        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
 //    }
 
-    override fun sendMessage(message: String) {
+//    override fun sendMessage(message: String) {
 //        val bundle = Bundle()
 //        bundle.putString(MESSAGE, message)
 //        messageShowFragment.arguments = bundle
 //        switchFragment(messageShowFragment)
-    }
+//    }
 
 
 }

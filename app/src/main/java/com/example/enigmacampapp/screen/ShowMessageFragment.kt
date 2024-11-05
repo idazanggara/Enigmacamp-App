@@ -33,7 +33,7 @@ class ShowMessageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getMessage = arguments?.getString(MainActivity.MESSAGE)
+//        getMessage = arguments?.getString(MainActivity.MESSAGE)
         binding.apply {
             tvHelloName.text = getMessage
             btnBack.setOnClickListener {

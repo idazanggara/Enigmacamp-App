@@ -26,10 +26,10 @@ class HomeActivity : AppCompatActivity() {
         }
 
         // Mendapatkan data dari Bundle
-        val message = intent.extras?.getString(MESSAGE)
-        if (message != null) {
-            // Menampilkan data ke dalam view (misalnya TextView)
-            binding.tvFullName.text = message
-        }
+//        val message = intent.extras?.getString(MESSAGE)
+//        if (message != null) {
+//            // Menampilkan data ke dalam view (misalnya TextView)
+//            binding.tvFullName.text = message
+//        }
     }
 }

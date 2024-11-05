@@ -5,16 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import com.example.enigmacampapp.R
-import com.example.enigmacampapp.databinding.FragmentGreetingBinding
+import com.example.enigmacampapp.activity.HomeActivity
+import com.example.enigmacampapp.databinding.FragmentHomeBinding
 
 
-class GreetingFragment : Fragment() {
-
-    private lateinit var binding: FragmentGreetingBinding
-    private lateinit var fragmentMessage: MessageFragment
-
+class HomeFragment : Fragment() {
+    private lateinit var binding: FragmentHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -24,22 +21,22 @@ class GreetingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentGreetingBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fragmentMessage = MessageFragment()
-        binding.btnStart.setOnClickListener {
-//            findNavController().navigate(R.id.action_greetingFragment_to_messageFragment)
-            findNavController().navigate(R.id.action_greetingFragment2_to_homeActivity2)
-
+        // Ambil data dari arguments
+        val message = arguments?.getString(HomeActivity.MESSAGE)
+        if (message != null) {
+            // Tampilkan data di TextView atau view lain
+            binding.tvFullName.text = message
         }
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) = GreetingFragment()
+        fun newInstance(param1: String, param2: String) = HomeFragment()
     }
 }
