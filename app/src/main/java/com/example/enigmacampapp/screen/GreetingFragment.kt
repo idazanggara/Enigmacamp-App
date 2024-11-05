@@ -33,7 +33,7 @@ class GreetingFragment : Fragment() {
         fragmentMessage = MessageFragment()
         binding.btnStart.setOnClickListener {
 //            findNavController().navigate(R.id.action_greetingFragment_to_messageFragment)
-            findNavController().navigate(R.id.action_greetingFragment2_to_homeActivity2)
+            findNavController().navigate(R.id.action_greetingFragment_to_homeActivity)
 
         }
     }

@@ -28,11 +28,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Ambil data dari arguments
-        val message = arguments?.getString(HomeActivity.MESSAGE)
-        if (message != null) {
-            // Tampilkan data di TextView atau view lain
-            binding.tvFullName.text = message
-        }
+//        val message = arguments?.getString(HomeActivity.MESSAGE)
+//        if (message != null) {
+//            // Tampilkan data di TextView atau view lain
+//            binding.tvFullName.text = message
+//        }
+        // Passing Data With Safe Args
+        val args = HomeFragmentArgs.fromBundle(requireArguments())
+        binding.tvFullName.text = args.passedMessage
     }
 
     companion object {
