@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".materialBeforeNav.MainActivity3ImplicitIntent">
+    tools:context=".presentation.materialBeforeNav.MainActivity3ImplicitIntent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

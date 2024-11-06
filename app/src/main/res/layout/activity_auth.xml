@@ -5,10 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.home.HomeActivity">
+    tools:context=".presentation.auth.AuthActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_home"
+        android:id="@+id/nav_host_auth"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,9 +17,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/home_pascal_nav">
+        app:navGraph="@navigation/auth_pascal_nav"
+        tools:layout="@layout/fragment_message">
 
     </androidx.fragment.app.FragmentContainerView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
