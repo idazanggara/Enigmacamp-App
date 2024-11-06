@@ -13,8 +13,8 @@
         android:theme="@style/Theme.EnigmacampApp"
         tools:targetApi="31">
         <activity
-            android:name=".activity.SplashScreenActivity"
-            android:exported="false" />
+            android:name=".activity.MainActivity"
+            android:exported="true" />
         <activity
             android:name=".activity.AuthenticationActivity"
             android:exported="false" />
@@ -46,7 +46,7 @@
             android:name=".materialBeforeNav.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.SplashScreenActivity"
             android:exported="true"
             >
             <intent-filter>
