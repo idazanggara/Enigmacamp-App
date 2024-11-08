@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Style Custom untuk BottomNavigationView -->
+    <style name="CustomBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconSize">24dp</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.AppCompat.Caption</item>
+    </style>
+</resources>

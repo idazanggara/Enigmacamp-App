@@ -234,6 +234,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="Pascal App by Enigma"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

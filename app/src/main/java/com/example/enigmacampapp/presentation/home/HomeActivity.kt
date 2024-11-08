@@ -1,10 +1,15 @@
 package com.example.enigmacampapp.presentation.home
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.enigmacampapp.R
 import com.example.enigmacampapp.databinding.ActivityHomeBinding
 
@@ -13,6 +18,8 @@ class HomeActivity : AppCompatActivity() {
         const val MESSAGE = "MESSAGE"
     }
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var navController: NavController
+    private lateinit var navHostFragment: NavHostFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,5 +38,11 @@ class HomeActivity : AppCompatActivity() {
 //            // Menampilkan data ke dalam view (misalnya TextView)
 //            binding.tvFullName.text = message
 //        }
+
+        binding.apply {
+            navHostFragment = supportFragmentManager.findFragmentById(navHostHome.id) as NavHostFragment
+            navController = navHostFragment.findNavController()
+            NavigationUI.setupWithNavController(bottomNavigationView, navController)
+        }
     }
 }
