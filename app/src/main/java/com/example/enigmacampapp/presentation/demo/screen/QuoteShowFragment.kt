@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.enigmacampapp.R
 import com.example.enigmacampapp.databinding.FragmentQuoteShowBinding
-import com.example.enigmacampapp.presentation.demo.ViewModel.MessageViewModel
+import com.example.enigmacampapp.presentation.demo.viewmodel.MessageViewModel
 
 
 class QuoteShowFragment : Fragment() {
@@ -32,14 +31,19 @@ class QuoteShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         messageViewModel = ViewModelProvider(requireActivity())[MessageViewModel::class.java]
-        subscribe()
+        // Using dataBinding to bind data directly to the views in XML
+        binding.quotesViewModel = messageViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        // Ini sudah tidak di pakai kembali karena sudah menggunakan dataBinding
+        //subscribe()
     }
 
-    private fun subscribe() {
-        messageViewModel.message.observe(viewLifecycleOwner) {
-            binding.tvQuote.text = it
-        }
-    }
+//    private fun subscribe() {
+//        messageViewModel.message.observe(viewLifecycleOwner) {
+//            binding.tvQuote.text = it
+//        }
+//    }
 
     companion object {
         fun newInstance(param1: String, param2: String) = QuoteShowFragment()

@@ -1,4 +1,4 @@
-package com.example.enigmacampapp.presentation.demo.ViewModel
+package com.example.enigmacampapp.presentation.demo.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-kapt")
 
 }
 
@@ -11,7 +12,9 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
+
 
     defaultConfig {
         applicationId = "com.example.enigmacampapp"
@@ -50,13 +53,18 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-//  navigation
+
+    // navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-//
+
     // material
     implementation (libs.material)
 
+    // viewmodel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    // livedata opsional
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

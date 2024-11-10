@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.enigmacampapp.R
 import com.example.enigmacampapp.databinding.FragmentQuotesBinding
-import com.example.enigmacampapp.presentation.demo.ViewModel.MessageViewModel
+import com.example.enigmacampapp.presentation.demo.viewmodel.MessageViewModel
 
 class QuotesFragment : Fragment() {
 

@@ -1,12 +1,15 @@
-package com.example.enigmacampapp.presentation.demo.ViewModel
+package com.example.enigmacampapp.presentation.demo.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.util.Calendar
 import java.util.TimeZone
 
 class MessageViewModel : ViewModel() {
-    var message = MutableLiveData<String>()
+    private val _message = MutableLiveData<String>()
+    val message: LiveData<String> get() = _message
+
 
     private val messageQuotes = listOf<String>(
         "Have nice day",
@@ -19,7 +22,7 @@ class MessageViewModel : ViewModel() {
 
     fun sendMessage(name: String) {
         val time = getTimeOfDay()
-        message.value = "Selamat $time $name!\n $currentMessageQuote"
+        _message.value = "Selamat $time $name!! \n $currentMessageQuote"
     }
 
     private fun getTimeOfDay(): String {

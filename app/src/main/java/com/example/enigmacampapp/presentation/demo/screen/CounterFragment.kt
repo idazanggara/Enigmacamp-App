@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.enigmacampapp.R
 import com.example.enigmacampapp.databinding.FragmentCounterBinding
-import com.example.enigmacampapp.presentation.demo.ViewModel.CounterViewModel
+import com.example.enigmacampapp.presentation.demo.viewmodel.CounterViewModel
 
 
 class CounterFragment : Fragment() {
