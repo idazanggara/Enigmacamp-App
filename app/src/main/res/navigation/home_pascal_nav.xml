@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_homeFragment_to_theCounterActivity"
             app:destination="@id/theCounterActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_greetingActivity"
+            app:destination="@id/greetingActivity" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -24,4 +27,9 @@
         android:id="@+id/theCounterActivity"
         android:name="com.example.enigmacampapp.presentation.demo.TheCounterActivity"
         android:label="TheCounterActivity" />
+    <activity
+        android:id="@+id/greetingActivity"
+        android:name="com.example.enigmacampapp.presentation.demo.GreetingActivity"
+        android:label="activity_greeting"
+        tools:layout="@layout/activity_greeting" />
 </navigation>

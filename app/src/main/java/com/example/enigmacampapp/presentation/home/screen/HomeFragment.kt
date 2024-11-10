@@ -41,7 +41,17 @@ class HomeFragment : Fragment() {
         binding.apply {
             tvFullName.text = "Idaz Anggara"
             btnDetailIncrement.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_theCounterActivity)
+                findNavController()
+                    .navigate(
+                        R.id.action_homeFragment_to_theCounterActivity
+                    )
+            }
+
+            btnDetailMessage.setOnClickListener {
+                findNavController()
+                    .navigate(
+                        R.id.action_homeFragment_to_greetingActivity
+                    )
             }
 
         }
