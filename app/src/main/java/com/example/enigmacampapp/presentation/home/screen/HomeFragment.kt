@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.enigmacampapp.R
 import com.example.enigmacampapp.databinding.FragmentHomeBinding
 
 
@@ -36,7 +38,13 @@ class HomeFragment : Fragment() {
         // Passing Data With Safe Args
 //        val args = HomeFragmentArgs.fromBundle(requireArguments())
 //        binding.tvFullName.text = args.passedMessage
-        binding.tvFullName.text = "Idaz Anggara"
+        binding.apply {
+            tvFullName.text = "Idaz Anggara"
+            btnDetailIncrement.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_theCounterActivity)
+            }
+
+        }
 
     }
 

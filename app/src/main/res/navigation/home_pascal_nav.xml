@@ -10,10 +10,18 @@
         android:id="@+id/homeFragment"
         android:name="com.example.enigmacampapp.presentation.home.screen.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_theCounterActivity"
+            app:destination="@id/theCounterActivity" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.enigmacampapp.presentation.home.screen.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <activity
+        android:id="@+id/theCounterActivity"
+        android:name="com.example.enigmacampapp.presentation.demo.TheCounterActivity"
+        android:label="TheCounterActivity" />
 </navigation>

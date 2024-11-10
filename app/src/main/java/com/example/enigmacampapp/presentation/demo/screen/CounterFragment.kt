@@ -5,13 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.enigmacampapp.R
 import com.example.enigmacampapp.databinding.FragmentCounterBinding
+import com.example.enigmacampapp.presentation.demo.ViewModel.CounterViewModel
 
 
 class CounterFragment : Fragment() {
 
     private lateinit var binding: FragmentCounterBinding
+    private lateinit var counterViewModel: CounterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +31,14 @@ class CounterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        binding.btnIncrement.setOnClickListener {
-//            mainActivity.notifyIncrease()
-//        }
-//
-//        binding.btnDecrement.setOnClickListener {
-//            mainActivity.notifyDecrease()
-//        }
+        counterViewModel = ViewModelProvider(requireActivity())[CounterViewModel::class.java]
+        binding.btnIncrement.setOnClickListener {
+            counterViewModel.notifyIncrease()
+        }
+
+        binding.btnDecrement.setOnClickListener {
+            counterViewModel.notifyDecrease()
+        }
     }
 
     companion object {
