@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.enigmacampapp.R
 import com.example.enigmacampapp.presentation.home.model.ContactModel
 
-class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
+class ContactAdapter(val listener: ContactListener) : RecyclerView.Adapter<ContactViewHolder>() {
 
     var contactsList = ArrayList<ContactModel>()
 
@@ -58,18 +58,25 @@ class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
 //        R.drawable.ic_account_circle_contact
 //    )
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent,false)
-        return ViewHolder(view)
+        return ContactViewHolder(view, listener)
     }
 
-    override fun onBindViewHolder(holder: ContactAdapter.ViewHolder, position: Int) {
-//        holder.itemContactName.text = contactName[position]
-//        holder.itemContactJob.text = contactJob[position]
-//        holder.itemContactImage.setImageResource(contactImage[position])
-        holder.itemContactName.text = contactsList[position].name
-        holder.itemContactJob.text = contactsList[position].job
-        holder.itemContactImage.setImageResource(contactsList[position].contactImage)
+
+
+//    override fun onBindViewHolder(holder: ContactAdapter.ViewHolder, position: Int) {
+////        holder.itemContactName.text = contactName[position]
+////        holder.itemContactJob.text = contactJob[position]
+////        holder.itemContactImage.setImageResource(contactImage[position])
+//        holder.itemContactName.text = contactsList[position].name
+//        holder.itemContactJob.text = contactsList[position].job
+//        holder.itemContactImage.setImageResource(contactsList[position].contactImage)
+//    }
+    override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
+        val contact = contactsList[position]
+        holder.bind(contact)
+
     }
 
     override fun getItemCount(): Int = contactsList.size
@@ -107,16 +114,16 @@ class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
     }
 
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var itemContactImage: ImageView = itemView.findViewById(R.id.contact_image)
-        var itemContactName: TextView = itemView.findViewById(R.id.tv_contact_name)
-        var itemContactJob: TextView = itemView.findViewById(R.id.tv_contact_job)
-
-        init {
-            itemView.setOnClickListener {
-                val position: Int = adapterPosition
-                Toast.makeText(itemView.context, "You clicked on ${contactsList[position]}", Toast.LENGTH_LONG).show()
-            }
-        }
-    }
+//    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+//        var itemContactImage: ImageView = itemView.findViewById(R.id.contact_image)
+//        var itemContactName: TextView = itemView.findViewById(R.id.tv_contact_name)
+//        var itemContactJob: TextView = itemView.findViewById(R.id.tv_contact_job)
+//
+//        init {
+//            itemView.setOnClickListener {
+//                val position: Int = adapterPosition
+//                Toast.makeText(itemView.context, "You clicked on ${contactsList[position]}", Toast.LENGTH_LONG).show()
+//            }
+//        }
+//    }
 }

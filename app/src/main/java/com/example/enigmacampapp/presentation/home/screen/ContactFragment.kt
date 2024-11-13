@@ -46,8 +46,9 @@ class ContactFragment : Fragment() {
 //            contactRecyclerview.adapter = adapter
 //        }
         initViewModel()
+
         binding.apply {
-            cAdapter = ContactAdapter()
+            cAdapter = ContactAdapter(contactViewModel)
 //            cAdapter.contactsList.addAll(getContactFromDB())
             addContact.setOnClickListener {
                 findNavController().navigate(R.id.action_contactFragment_to_formContactFragment)
