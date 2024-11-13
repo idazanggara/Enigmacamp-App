@@ -30,4 +30,7 @@
 
     <color name="seaBlueColor">#e3f2fd</color>
     <color name="seaGreenColor">#e8f5e9</color>
+    <color name="contactColor">#EEEAE3</color>
+
+
 </resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_layout_contact"
+    android:layout_margin="5dp"
+    android:backgroundTint="@color/contactColor"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="6dp"
+    app:contentPadding="4dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/constraintLayout"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/contact_image"
+            android:layout_width="61dp"
+            android:layout_height="61dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="Image Contact"
+            />
+
+        <TextView
+            android:id="@+id/tv_contact_name"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/contact_image"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_contact_job"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/contact_image"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_contact_name"
+            android:textSize="12sp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

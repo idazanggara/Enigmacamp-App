@@ -10,8 +10,8 @@
         android:orderInCategory="1"
         />
     <item
-        android:id="@+id/profileFragment"
-        android:title="Profile"
+        android:id="@+id/contactFragment"
+        android:title="Contact"
         android:icon="@drawable/ic_baseline_person_24"
         app:showAsAction="always"
         android:orderInCategory="2"

@@ -19,10 +19,10 @@
             app:destination="@id/greetingActivity" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.enigmacampapp.presentation.home.screen.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:id="@+id/contactFragment"
+        android:name="com.example.enigmacampapp.presentation.home.screen.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" />
     <activity
         android:id="@+id/theCounterActivity"
         android:name="com.example.enigmacampapp.presentation.demo.TheCounterActivity"
