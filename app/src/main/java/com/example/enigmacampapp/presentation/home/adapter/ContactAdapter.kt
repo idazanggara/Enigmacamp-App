@@ -75,12 +75,16 @@ class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
     override fun getItemCount(): Int = contactsList.size
 
     fun setContact(newContact: List<ContactModel>) {
+        // seperti ini saja sudah bisa, namun mungkin kurang optimal
+//        contactsList.clear()
+//        contactsList.addAll(newContact)
+//        notifyDataSetChanged() //
+
         val diffCallback = ContactDiffCallback(contactsList, newContact)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
 
         contactsList.clear()
         contactsList.addAll(newContact)
-//        notifyDataSetChanged()
         diffResult.dispatchUpdatesTo(this)
     }
 
