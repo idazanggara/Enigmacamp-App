@@ -22,7 +22,11 @@
         android:id="@+id/contactFragment"
         android:name="com.example.enigmacampapp.presentation.home.screen.ContactFragment"
         android:label="fragment_contact"
-        tools:layout="@layout/fragment_contact" />
+        tools:layout="@layout/fragment_contact" >
+        <action
+            android:id="@+id/action_contactFragment_to_formContactFragment"
+            app:destination="@id/formContactFragment" />
+    </fragment>
     <activity
         android:id="@+id/theCounterActivity"
         android:name="com.example.enigmacampapp.presentation.demo.TheCounterActivity"
@@ -32,4 +36,13 @@
         android:name="com.example.enigmacampapp.presentation.demo.GreetingActivity"
         android:label="activity_greeting"
         tools:layout="@layout/activity_greeting" />
+    <fragment
+        android:id="@+id/formContactFragment"
+        android:name="com.example.enigmacampapp.presentation.home.screen.FormContactFragment"
+        android:label="fragment_form_contact"
+        tools:layout="@layout/fragment_form_contact" >
+        <action
+            android:id="@+id/action_formContactFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
+    </fragment>
 </navigation>

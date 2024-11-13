@@ -22,4 +22,9 @@ class ContactViewModel : ViewModel() {
     private fun loadDataContact() {
         _contactLiveData.value = contacts
     }
+
+    fun addContact(contact: ContactModel) {
+        contacts.add(contact)
+        _contactLiveData.value = contacts
+    }
 }
