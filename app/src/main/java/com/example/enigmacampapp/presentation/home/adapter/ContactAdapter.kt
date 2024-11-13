@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.enigmacampapp.R
 import com.example.enigmacampapp.presentation.home.model.ContactModel
@@ -72,6 +73,35 @@ class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int = contactsList.size
+
+    fun setContact(newContact: List<ContactModel>) {
+        val diffCallback = ContactDiffCallback(contactsList, newContact)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+
+        contactsList.clear()
+        contactsList.addAll(newContact)
+//        notifyDataSetChanged()
+        diffResult.dispatchUpdatesTo(this)
+    }
+
+    inner class ContactDiffCallback(
+        private val oldList: List<ContactModel>,
+        private val newList: List<ContactModel>
+    ) : DiffUtil.Callback() {
+
+        override fun getOldListSize(): Int = oldList.size
+
+        override fun getNewListSize(): Int = newList.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition].name == newList[newItemPosition].name
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition] == newList[newItemPosition]
+        }
+    }
+
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var itemContactImage: ImageView = itemView.findViewById(R.id.contact_image)

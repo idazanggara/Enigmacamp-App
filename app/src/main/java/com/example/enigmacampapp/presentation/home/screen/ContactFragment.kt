@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,12 +13,14 @@ import com.example.enigmacampapp.R
 import com.example.enigmacampapp.databinding.FragmentContactBinding
 import com.example.enigmacampapp.presentation.home.adapter.ContactAdapter
 import com.example.enigmacampapp.presentation.home.model.ContactModel
+import com.example.enigmacampapp.presentation.home.viewmodel.ContactViewModel
 
 class ContactFragment : Fragment() {
 
 //    private  var layoutManager: RecyclerView.LayoutManager? = null
 //    private var adapter: RecyclerView.Adapter<ContactAdapter.ViewHolder>? = null
     private lateinit var binding: FragmentContactBinding
+    private lateinit var contactViewModel: ContactViewModel
     private lateinit var cAdapter: ContactAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,9 +45,10 @@ class ContactFragment : Fragment() {
 //            contactRecyclerview.layoutManager = layoutManager
 //            contactRecyclerview.adapter = adapter
 //        }
+        initViewModel()
         binding.apply {
             cAdapter = ContactAdapter()
-            cAdapter.contactsList.addAll(getContactFromDB())
+//            cAdapter.contactsList.addAll(getContactFromDB())
 //            addContact.setOnClickListener {
 //                findNavController().navigate(R.id.action_contactFragment_to_formContactFragment)
 //            }
@@ -53,7 +57,18 @@ class ContactFragment : Fragment() {
                 adapter = cAdapter
             }
         }
+        subscribe()
 
+    }
+
+    private fun initViewModel() {
+        contactViewModel = ViewModelProvider(requireActivity())[ContactViewModel::class.java]
+    }
+
+    private fun subscribe() {
+        contactViewModel.contactLiveData.observe(viewLifecycleOwner) {
+            cAdapter.setContact(it)
+        }
     }
 
     private fun getContactFromDB(): List<ContactModel> {
